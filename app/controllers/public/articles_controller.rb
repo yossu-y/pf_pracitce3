@@ -17,6 +17,8 @@ class Public::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @articlenew = Article.new
+    @comment = Comment.new
   end
   
   def create

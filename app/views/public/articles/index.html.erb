@@ -15,9 +15,10 @@
     <td><%= article.body %></td>
   </tr>
   <tr>
-    <td></td>
+    <td class="comments-counter">
+      <%= render "public/comments/counter", article: @article %>
+    </td>
   </tr>
 </table>
-
 
 <% end %>
