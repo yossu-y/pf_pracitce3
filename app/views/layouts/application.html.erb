@@ -11,6 +11,20 @@
   </head>
 
   <body>
+    <header>
+      <%= render "layouts/header" %>
+    </header>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12">
+          <p id="notice"><%= notice %></p>
+        </div>
+      </div>
+    </div>
     <%= yield %>
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
+  </body>
   </body>
 </html>
