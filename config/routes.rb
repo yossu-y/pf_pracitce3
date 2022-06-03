@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     
     resources :articles do
       resources :comments, only:[:create, :destroy]
+      resource :like, only:[:create, :destroy]
     end
     
     get "users/my_page/:id" => "users#show", as: "my_page"

@@ -15,6 +15,11 @@
     <td><%= article.body %></td>
   </tr>
   <tr>
+    <td>
+      <%= render "public/likes/btn", article: article %>
+    </td>
+  </tr>
+  <tr>
     <td class="comments-counter">
       <%= render "public/comments/counter", article: @article %>
     </td>
