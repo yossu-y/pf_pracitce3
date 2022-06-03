@@ -1,2 +1,23 @@
-<h1>Public::Articles#index</h1>
-<p>Find me in app/views/public/articles/index.html.erb</p>
+記事一覧
+
+<% @articles.each do |article| %>
+<table>
+  <tr>
+    <td>タイトル</td>
+    <td>
+      <%= link_to article_path(article.id) do %>
+        <%= article.title %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>内容</td>
+    <td><%= article.body %></td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+</table>
+
+
+<% end %>

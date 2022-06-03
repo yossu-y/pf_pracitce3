@@ -1,2 +1,15 @@
-<h1>Public::Articles#show</h1>
-<p>Find me in app/views/public/articles/show.html.erb</p>
+<h5>公開された記事</h5>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th><%= @article.title %></th>
+  </tr>
+  <tr>
+    <th>内容</th>
+    <th><%= @article.body %></th>
+  </tr>
+</table>
+
+<%= link_to "編集する", edit_article_path(@article) %>
+<%= link_to "削除する", article_path, method: :delete, data: { confirm: "本当に削除しますか？"} %>
