@@ -15,3 +15,5 @@
 <%= link_to "削除する", article_path, method: :delete, data: { confirm: "本当に削除しますか？"} %>
 
 <%= render "public/comments/form", article: @article, comment: @comment %>
+
+<%= render "public/comments/index", article: @article %>
