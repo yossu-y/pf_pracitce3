@@ -19,7 +19,11 @@ Rails.application.routes.draw do
     
     get "users/my_page/:id" => "users#show", as: "my_page"
     get "users/unsubscribe/:id" => "users#unsubscribe", as: "unsubscribe"
-    resources :users, only: [:edit, :update, :show]
+    resources :users, only: [:edit, :update, :show] do
+      resource :relationship, only: [:create, :destroy]
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers" => "relationships#followers", as: "followers"
+    end
     
   end
   
