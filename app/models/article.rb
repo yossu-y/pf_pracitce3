@@ -7,6 +7,8 @@ class Article < ApplicationRecord
   has_many :article_tags, dependent: :destroy
   has_many :tags, through: :article_tags
   
+  has_rich_text :body
+  
   def liked_by?(user)
     likes.exists?(user_id: user.id)
   end
