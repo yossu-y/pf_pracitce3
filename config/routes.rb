@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  namespace :public do
+    get 'searches/search'
+  end
   # 利用者用
   
   devise_for :users,skip: [:passwords], controllers: {
@@ -24,6 +27,8 @@ Rails.application.routes.draw do
       get "followings" => "relationships#followings", as: "followings"
       get "followers" => "relationships#followers", as: "followers"
     end
+    
+    get "searches/search" => "searches#search", as: "search"
     
   end
   
