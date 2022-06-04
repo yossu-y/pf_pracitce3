@@ -28,7 +28,15 @@ class Article < ApplicationRecord
     new_tags.each do |new|
       new_article_tag = Tag.find_or_create_by(name: new)
       self.tags << new_article_tag
-   end
-end
+    end
+  end
+  
+  def self.search(search, keyword)
+    if search != ""
+      Article.where(['title LIKE(?)', "%#{search}%"])
+    else
+      Article.all
+    end
+  end
   
 end

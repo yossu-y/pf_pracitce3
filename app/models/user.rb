@@ -27,4 +27,12 @@ class User < ApplicationRecord
     followings.include?(user)
   end
   
+  def self.search(search, keyword)
+    if search != ""
+      User.where(['screen_name LIKE(?)', "%#{search}%"])
+    else
+      User.all
+    end
+  end
+  
 end

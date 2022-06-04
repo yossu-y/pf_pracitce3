@@ -1,2 +1,13 @@
-<h1>Public::Searches#search</h1>
-<p>Find me in app/views/public/searches/search.html.erb</p>
+<% if @range == "user" %>
+  <% @users.each do |user| %>
+    <%= user.screen_name %>
+  <% end %>
+<% elsif @range == "article" %>
+  <% @articles.each do |article| %>
+    <%= article.title %>
+  <% end %>
+<% else @range == "tag" %>
+  <% @tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+<% end %>
