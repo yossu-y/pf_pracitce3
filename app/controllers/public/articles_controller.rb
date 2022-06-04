@@ -14,7 +14,7 @@ class Public::ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-    @tag_list=@article.tags.pluck(:name).join(',')
+    @tag_list=@article.tags.pluck(:name).join('#')
   end
 
   def show
