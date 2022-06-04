@@ -39,4 +39,9 @@ class Article < ApplicationRecord
     end
   end
   
+  with_options presence: true, on: :publicize do
+    validates :title
+    validates :body
+  end
+  
 end
