@@ -9,6 +9,15 @@
     <th>内容</th>
     <th><%= @article.body %></th>
   </tr>
+  <tr>
+    <th>タグ</th>
+    <th>
+      <% @article_tags.each do |tag| %>
+        <%=tag.name%>
+        <%="(#{tag.articles.count})" %>
+      <% end %>
+    </th>
+  </tr>
 </table>
 
 <%= link_to "編集する", edit_article_path(@article) %>
@@ -17,3 +26,5 @@
 <%= render "public/comments/form", article: @article, comment: @comment %>
 
 <%= render "public/comments/index", article: @article %>
+
+

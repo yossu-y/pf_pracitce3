@@ -9,22 +9,27 @@ class Public::ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @article = Article.new
+    @tag_list = Tag.all
   end
 
   def edit
     @article = Article.find(params[:id])
+    @tag_list=@article.tags.pluck(:name).join(',')
   end
 
   def show
     @article = Article.find(params[:id])
     @articlenew = Article.new
     @comment = Comment.new
+    @article_tags = @article.tags
   end
   
   def create
     @article = current_user.articles.new(article_params)
     @article.user_id = current_user.id
+    tag_list = params[:article][:tag_name].split(nil)
     if @article.save
+      @article.save_tag(tag_list)
       redirect_to articles_path
     else
       @articles = Article.all

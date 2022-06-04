@@ -16,6 +16,14 @@
   </tr>
   <tr>
     <td>
+      <% @tag_list.each do |list|%>
+        <%=list.name %>
+        <%="(#{list.articles.count})" %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
       <%= render "public/likes/btn", article: article %>
     </td>
   </tr>
@@ -26,4 +34,11 @@
   </tr>
 </table>
 
+<% end %>
+
+
+
+投稿一覧画面で投稿に紐づくタグを表示
+<% @articles.each do |article| %>
+  <i class="fas fa-tag"><%= article.tags.map(&:name).join(', ') %></i>
 <% end %>
