@@ -1,1 +1,6 @@
-<%= >
+<%= groups.each do |group| %>
+  <p>グループ画像を挿入</p>
+  <%= link_to group.name, group_path %>
+  <%= group.introduction %>
+  <%= group.users.count %>
+<% end %>

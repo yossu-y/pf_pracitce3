@@ -1,0 +1,18 @@
+グループ詳細
+
+<p>グループ画像を挿入</p>
+<%= @group.name %>
+<%= @group. introduction %>
+<% @group.users.each do |user| %>
+  <%= user.name %>
+<% end %>
+
+<%= if @group.is_ownered_by?(curernt_user) %>
+  <%= link_to "編集する", edit_group_path(@group) %>
+<% else %>
+  <% if @group.includesUser?(current_user) %>
+    <%= link_to "退会する", group_group_users_path(@group), method: :delete %>
+  <% else %>
+    <%= link_to "参加する", group_group_users_path(@group), method: :post %>
+  <% end %>
+<% end %>
