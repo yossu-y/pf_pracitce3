@@ -87,16 +87,16 @@ ActiveRecord::Schema.define(version: 2022_06_04_114117) do
   end
 
   create_table "group_users", force: :cascade do |t|
-    t.integer "owner_id", null: false
-    t.string "name", null: false
-    t.text "introduction", null: false
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "group_id", null: false
+    t.integer "owner_id", null: false
+    t.string "name", null: false
+    t.text "introduction", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -7,7 +7,7 @@
   <%= user.name %>
 <% end %>
 
-<%= if @group.is_ownered_by?(curernt_user) %>
+<% if @group.is_owned_by?(current_user) %>
   <%= link_to "編集する", edit_group_path(@group) %>
 <% else %>
   <% if @group.includesUser?(current_user) %>

@@ -28,8 +28,8 @@ Rails.application.routes.draw do
       get "followers" => "relationships#followers", as: "followers"
     end
     
-    resrouces :groups, except: [:destroy] do
-      resource :group_users, onyl: [:create, :destroy]
+    resources :groups, except: [:destroy] do
+      resource :group_user, onyl: [:create, :destroy]
     end
     
     get "searches/search" => "searches#search", as: "search"
