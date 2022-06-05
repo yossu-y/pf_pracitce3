@@ -14,9 +14,11 @@
  *= require_self
  */
  
+ /* usersのviewファイル*/
  .my_page {
    margin: auto !important;
  }
+ 
 
 .form {
   border: solid 2px #f5f5f5 !important;

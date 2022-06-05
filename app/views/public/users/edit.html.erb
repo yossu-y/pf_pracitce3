@@ -1,18 +1,37 @@
-<%= form_with model:@user, local:true do |f| %>
-
-  <div class="form-group">
-    <%= f.label :名前 %>
-    <%= f.text_field :screen_name %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :紹介文 %>
-    <%= f.text_area :introduction %>
-  </div>
-
-  <div class="form-group">
-    <%= link_to "キャンセル", user_path(current_user), class: "back btn btn-light" %>
-    <%= f.submit "保存", class: "btn btn-success" %>
-  </div>
-
-<% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="mx-3"><h3 class="mb-5 mini-title">プロフィール編集</h3></div>
+      <div class="col-12">
+  
+  
+          <%= form_with model: @user, local: true do |f| %>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <%= f.label :画像 %><br>
+                  <%= f.file_field :profile_image, class: "form", accept: "image/*" %>
+                </div>
+                
+                <div class="form-group">
+                  <%= f.label :名前 %><br>
+                  <%= f.text_field :screen_name, class: "form name", size: "50×10" %>
+                </div>
+              
+                <div class="form-group">
+                  <%= f.label :紹介文 %><br>
+                  <%= f.text_area :introduction, class: "form introduction", size: "50×80" %>
+                </div>
+                
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <%= link_to "キャンセル", user_path(current_user), class: "back btn btn-light" %>
+              <%= f.submit "保存", class: "btn btn-success" %>
+            </div>
+          
+          <% end %>
+          
+       </div>
+  </div>    
+</div>
