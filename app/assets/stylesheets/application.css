@@ -19,8 +19,8 @@
    margin: auto !important;
  }
  
- .article-body {
-   width: 90% !important;
+ .article_body form {
+   height: 80px !important;
  }
  
 .form {
