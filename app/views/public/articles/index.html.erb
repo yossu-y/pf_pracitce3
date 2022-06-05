@@ -14,7 +14,7 @@
                 </p>
                 <%= image_tag @article.user.get_profile_image, class: "rouded-circle" %>
                 <%= link_to article_user do %>
-                  <%= @article.user.name %>
+                  <%= @article.user.screen_name %>
                 <% end %>
                 <%= render "public/likes/btn", article: article %>
                 <%= render "public/comments/counter", article: @article %>
