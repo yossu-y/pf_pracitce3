@@ -8,6 +8,7 @@ class Article < ApplicationRecord
   has_many :tags, through: :article_tags
   
   has_rich_text :body
+  has_one_attached :image
   
   def liked_by?(user)
     likes.exists?(user_id: user.id)
@@ -44,6 +45,10 @@ class Article < ApplicationRecord
   with_options presence: true, on: :publicize do
     validates :title
     validates :body
+  end
+  
+  def get_image
+    (image.attached?) ? image : "no_image.jpg"
   end
   
 end

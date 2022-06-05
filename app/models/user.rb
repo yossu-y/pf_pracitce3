@@ -14,8 +14,13 @@ class User < ApplicationRecord
 
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
-
-
+  
+  has_one_attached :profile_image
+  
+  def get_profile_image
+    (profile_image.attached?) ? profile_image : "no_image-icon.jpg"
+  end
+  
   def follow(user)
     relationships.create(followed_id: user.id)
   end
@@ -35,5 +40,6 @@ class User < ApplicationRecord
       User.all
     end
   end
+  
   
 end

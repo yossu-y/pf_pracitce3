@@ -1,23 +1,26 @@
 <table>
   <tr>
-    <th>ニックネーム</th>
-    <th>
+    <td><%= image_tag @user.get_profile_image, size: "100x100" %></td>
+  </tr>
+  <tr>
+    <td>ニックネーム</td>
+    <td>
       <%= link_to edit_user_path do %>
         <%= @user.screen_name %>
       <% end %>
-    </th>
+    </td>
   </tr>
   <tr>
-    <th>紹介文</th>
-    <th><%= @user.introduction %></th>
+    <td>紹介文</td>
+    <td><%= @user.introduction %></td>
   </tr>
   <tr>
-    <th>follows</th>
-    <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
+    <td>follows</td>
+    <td><%= link_to @user.followings.count, user_followings_path(@user) %></td>
   </tr>
   <tr>
-    <th>followers</th>
-    <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
+    <td>followers</td>
+    <td><%= link_to @user.followers.count, user_followers_path(@user) %></td>
   </tr>
 </table>
 
@@ -35,4 +38,4 @@
 <div>
   <%= link_to "グループを作成する", new_group_path %> | 
   <%= link_to "グループ一覧", groups_path %>
-  </div>
+</div>
