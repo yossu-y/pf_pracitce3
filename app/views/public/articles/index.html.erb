@@ -1,49 +1,44 @@
-記事一覧
-
-<% @articles.each do |article| %>
-<table>
-  <tr>
-    <td>タイトル</td>
-    <td>
-      <%= link_to article_path(article.id) do %>
-        <%= article.title %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>内容</td>
-    <td><%= article.body %></td>
-  </tr>
-  <tr>
-    <td>タグ</td>
-    <td>
-      <% article.tags.each do |tag| %>
-        <%= tag.name %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <%= render "public/likes/btn", article: article %>
-    </td>
-  </tr>
-  <tr>
-    <td class="comments-counter">
-      <%= render "public/comments/counter", article: @article %>
-    </td>
-  </tr>
-</table>
-
-<% end %>
-
-<% @tag_list.each do |list|%>
-  <%=list.name %>
-  <%="(#{list.articles.count})" %>
-<% end %>
-
-
-
-<!--投稿一覧画面で投稿に紐づくタグを表示-->
-<!--<% @articles.each do |article| %>-->
-  <!--<i class="fas fa-tag"><%= article.tags.map(&:name).join(', ') %></i>-->
-<!--<% end %>-->
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="mx-3"><h3 class="mb-5 mini-title">記事一覧</h3></div>
+      <div class="col-10 col-md-10 col-sm-10 mx-2 mx-sm-auto px-0 my-5">
+        <% @articles.each do |article| %>
+          <div class="card">
+            <div class="card-img-top">
+              <%= link_to article_path(article.id) do %>
+                <%= image_tag @article.get_image, class: "card-img-top" %>
+              <% end %>
+              <div class="card-body">
+                <p class="card-title">
+                  <%= @article.title %>
+                </p>
+                <%= image_tag @article.user.get_profile_image, class: "rouded-circle" %>
+                <%= link_to article_user do %>
+                  <%= @article.user.name %>
+                <% end %>
+                <%= render "public/likes/btn", article: article %>
+                <%= render "public/comments/counter", article: @article %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+          
+          <% @tag_list.each do |list|%>
+            <%=list.name %>
+            <%="(#{list.articles.count})" %>
+          <% end %>
+        
+        タグ
+          <% article.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>  
+          
+          
+          <!--投稿一覧画面で投稿に紐づくタグを表示-->
+          <!--<% @articles.each do |article| %>-->
+            <!--<i class="fas fa-tag"><%= article.tags.map(&:name).join(', ') %></i>-->
+          <!--<% end %>-->

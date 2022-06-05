@@ -47,6 +47,9 @@ class Article < ApplicationRecord
     validates :body
   end
   
+  validates :title, presence:true, on: :publicize
+  validates :body, presence:true, length:{maximum: 1500}, on: :publicize
+  
   def get_image
     (image.attached?) ? image : "no_image.jpg"
   end
