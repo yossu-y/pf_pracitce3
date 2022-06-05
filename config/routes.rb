@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     
     get "users/my_page/:id" => "users#show", as: "my_page"
     get "users/unsubscribe/:id" => "users#unsubscribe", as: "unsubscribe"
+    patch "users/withdraw" => "users#withdraw"
     resources :users, only: [:edit, :update, :show] do
       resource :relationship, only: [:create, :destroy]
       get "followings" => "relationships#followings", as: "followings"
