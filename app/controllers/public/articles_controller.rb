@@ -31,14 +31,14 @@ class Public::ArticlesController < ApplicationController
     if params[:post]
       if @article.save(context: :publicize)
         @article.save_tag(tag_list)
-        redirect_to articles_path, notice: "記事を投稿しました"
+        redirect_to articles_path, notice: "記事を投稿しました！"
       else
         @articles = Article.all
         render "new"
       end
     else
       if @article.update(is_draft: true)
-        redirect_to user_path(current_user), notice: "下書きに保存しました"
+        redirect_to user_path(current_user), notice: "下書きに保存しました！"
       else
         render "new"
       end
@@ -50,7 +50,7 @@ class Public::ArticlesController < ApplicationController
     if params[:publicize_draft]
       @article.attributes = article_params.merge(is_draft: false)
       if @article.save(context: :publicize)
-        redirect_to article_path(@article), notice: "下書きを公開しました"
+        redirect_to article_path(@article), notice: "下書きを公開しました！"
       else
         @article.is_draft = true
         render "edit"
@@ -58,13 +58,13 @@ class Public::ArticlesController < ApplicationController
     elsif params[:update_post]
       @article.attributes = article_params
       if @article.save(context: :publicize)
-        redirect_to article_path(@article), notice: "投稿を更新しました"
+        redirect_to article_path(@article), notice: "投稿を更新しました！"
       else
         render "edit"
       end
     else
       if @article.update(article_params)
-        redirect_to article_path(@article), notice: "下書きを更新しました"
+        redirect_to article_path(@article), notice: "下書きを更新しました！"
       else
         render "edit"
       end
@@ -80,7 +80,7 @@ class Public::ArticlesController < ApplicationController
   private
   
   def article_params
-    params.require(:article).permit(:title, :body, :is_draft)
+    params.require(:article).permit(:title, :body, :is_draft, :image)
   end
   
   def correct_user

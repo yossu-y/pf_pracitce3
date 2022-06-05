@@ -26,7 +26,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    redirect_to root_path
+    redirect_to root_path, notice: "退会処理が完了しました。"
   end
   
   private

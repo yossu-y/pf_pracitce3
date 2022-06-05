@@ -19,7 +19,12 @@
    margin: auto !important;
  }
  
+ .article-body {
+   width: 90% !important;
+ }
+ 
 .form {
   border: solid 2px #f5f5f5 !important;
   border-radius: 5px !important;
+  width: 100% !important;
 }
