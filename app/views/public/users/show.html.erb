@@ -1,41 +1,45 @@
-<table>
-  <tr>
-    <td><%= image_tag @user.get_profile_image, size: "100x100" %></td>
-  </tr>
-  <tr>
-    <td>ニックネーム</td>
-    <td>
-      <%= link_to edit_user_path do %>
-        <%= @user.screen_name %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>紹介文</td>
-    <td><%= @user.introduction %></td>
-  </tr>
-  <tr>
-    <td>follows</td>
-    <td><%= link_to @user.followings.count, user_followings_path(@user) %></td>
-  </tr>
-  <tr>
-    <td>followers</td>
-    <td><%= link_to @user.followers.count, user_followers_path(@user) %></td>
-  </tr>
-</table>
-
-<div class='row'>
-  <% if current_user != @user %>
-    <%= render "relationships/btn", user: user %>
-  <% else %>
-    <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary edit_user_#{@user.id}" do %>
-      <i class="fas fa-user-cog"></i>
-    <% end %>
-  <% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-12">
+  
+      <table class="table my_page">
+        <tr align="center">
+          <td rowspan="4"><%= image_tag @user.get_profile_image, class: "image rounded-circle" %></td>
+        </tr>
+        <tr>
+          <td><%= @user.screen_name %></td>
+          <td><%= render "public/users/follow", user: @user %></td>
+        </tr>
+        <tr>
+          <td><%= @user.introduction %></td>
+          <td>
+            <% if @user == current_user %>
+        	    <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary btn-block" do %>
+                <i class="fas fa-sign-out-alt"></i>ログアウト
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to user_followings_path(@user), class: "text-dark" do %>
+              <strong><%= @user.followings.count %></strong> フォロー&ensp;
+            <% end %>
+            <%= link_to user_followers_path(@user), class: "text-dark" do %>
+              <strong><%= @user.followers.count %></strong> フォロワー
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      
+    </div>
+  </div>    
 </div>
 
-
-<div>
-  <%= link_to "グループを作成する", new_group_path %> | 
-  <%= link_to "グループ一覧", groups_path %>
-</div>
+    
+    
+    
+    <div>
+      <%= link_to "グループを作成する", new_group_path %> | 
+      <%= link_to "グループ一覧", groups_path %>
+    </div>
