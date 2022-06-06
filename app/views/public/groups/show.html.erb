@@ -34,6 +34,7 @@
       
       <% if @group.is_owned_by?(current_user) %>
         <%= link_to "グループを編集する", edit_group_path(@group) %>
+        <%= link_to "イベントを作成する", new_group_event_notice_path(@group) %>
       <% else %>
         <% if @group.includesUser?(current_user) %>
           <%= link_to "退会する", group_group_users_path(@group), method: :delete %>
