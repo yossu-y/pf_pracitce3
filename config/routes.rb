@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     
     resources :groups, except: [:destroy] do
       resource :group_user, onyl: [:create, :destroy]
+      resources :event_notices, only: [:new, :create]
+      get "event_notice" => "event_notice#sent"
     end
     
     get "searches/search" => "searches#search", as: "search"

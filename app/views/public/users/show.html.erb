@@ -9,9 +9,9 @@
           </tr>
           <tr>
             <td><%= @user.screen_name %></td>
-            <% if @user.screen_name != "guest" %>
+          <% if @user.screen_name != "guest" %>
             <td><%= render "public/users/follow", user: @user %></td>
-            <% end %>
+          <% end %>
           </tr>
           <tr>
             <td><%= @user.introduction %></td>
