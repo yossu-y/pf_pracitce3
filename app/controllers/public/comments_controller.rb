@@ -4,6 +4,7 @@ class Public::CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.article_id = article.id
     @comment.save
+    article.create_notification_comment!(current_user, @comment.id)
     redirect_to request.referer
   end
   

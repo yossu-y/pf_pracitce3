@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       get "event_notice" => "event_notice#sent"
     end
     
+    resources :notifications, only: [:index]
+    
     get "searches/search" => "searches#search", as: "search"
     
   end
