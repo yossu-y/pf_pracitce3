@@ -42,4 +42,11 @@ class Public::UsersController < ApplicationController
     end
   end
   
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.screen_name == "guestuser"
+      redirect_to user_path(current_user) , notice: "ゲストはプロフィール編集ができません。"
+    end
+  end  
+  
 end

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :public do
-    get 'searches/search'
-  end
   # 利用者用
   
   devise_for :users,skip: [:passwords], controllers: {
@@ -35,6 +32,11 @@ Rails.application.routes.draw do
     
     get "searches/search" => "searches#search", as: "search"
     
+  end
+  
+  # ゲストログイン用
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   
   
