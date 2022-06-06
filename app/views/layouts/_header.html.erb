@@ -7,10 +7,10 @@
   <%= link_to "投稿一覧", articles_path %><br>
   <%= render "public/searches/form" %>
   
-  <%= link_to notifications_path do %>
-    <% if unchecked_notifications.any ? %>
+  <%= link_to notifications_path do %>通知
+    <% if unchecked_notifications.any? %>
       <i class="fa-solid fa-bell"></i>
-      <i class="fa-solid fa-circle"></i>
+      <i class="fa-solid fa-circle"></i><br>
     <% else %>
       <i class="fa-solid fa-bell"></i>
     <% end %>
@@ -20,4 +20,4 @@
   <%= link_to "新規登録", new_user_registration_path %><br>
   <%= link_to "ログイン", new_user_session_path %><br>
 <% end %>
-<%= link_to "アバウト", about_path %><br>
+  <%= link_to "アバウト", about_path %><br>
