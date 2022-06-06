@@ -26,7 +26,6 @@ class Public::ArticlesController < ApplicationController
   
   def create
     @article = current_user.articles.new(article_params)
-    @article.user_id = current_user.id
     tag_list = params[:article][:tag_name].split(nil)
     if params[:post]
       if @article.save(context: :publicize)

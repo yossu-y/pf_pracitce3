@@ -1,20 +1,21 @@
 <%= form_with model: group, local: true do |f| %>
+
+  <div class="form-group">
+    <%= f.label :グループ画像 %>
+    <%= f.file_field :image, class: "form" %>
+  </div>
+  
   <div class="form-group">
     <%= f.label :グループ名 %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :紹介文 %>
+    <%= f.label :グループの概要 %>
     <%= f.text_area :introduction, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :グループ画像 %>
-    <p>画像フォーム</p>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-info' %>
+    <%= f.submit "グループを作成", class: 'btn btn-info' %>
   </div>
 <% end %> 

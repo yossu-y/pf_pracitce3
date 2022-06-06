@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2022_06_04_114117) do
   create_table "articles", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false
-    t.text "body", null: false
     t.boolean "is_draft"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

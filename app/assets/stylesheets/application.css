@@ -14,6 +14,12 @@
  *= require_self
  */
  
+ @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+ 
+ .mini-title {
+  font-family: 'Caveat', cursive !important;
+}
+ 
  /*ログイン・新規登録*/
  .field {
    width: 90% !important;
@@ -34,3 +40,24 @@
   border-radius: 5px !important;
   width: 100% !important;
 }
+
+.card {
+  width: 30% !important;
+  display: flex !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.rounded-circle {
+  height: 50px !important;
+  width: 50px !important;
+}
+
+
+.article-img {
+  height: 80px !important;
+  width: 80px !important;
+  margin-top: 3px;
+  border-radius: 5px;
+}
+

@@ -2,42 +2,42 @@
   <div class="row">
     <div class="mx-3"><h3 class="mb-5 mini-title">公開された記事</h3></div>
     <div class="col-10 col-md-10 col-sm-10 mx-2 mx-sm-auto px-0 my-5">
-        <table class="table">
-          <tr>
-            <td>
-              <%= image_tag @article.get_image, class: "card-img" %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= @article.title %></td>
-          </tr>
-          <tr>
-            <td>
-              <%= link_to @article.user do %>
-                <%= image_tag @article.user.get_profile_image, class: "rounded-circle" %>
-                <%= @article.user.screen_name %>
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <%= @article.created_at.strftime("%Y-%m-%d %H:%M") %>
-          </tr>
-          <tr>
-            <td><%= @article.body %></td>
-          </tr>
-          <tr>
-            <td>
-              <% @article_tags.each do |tag| %>
-                <%=tag.name%>
-                <%="(#{tag.articles.count})" %>
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= render "public/likes/btn", article: article %></td>
-            <td><%= render "public/comments/counter", article: @article %></td>
-          </tr>
-        </table>
+      <table class="table">
+        <tr>
+          <td>
+            <%= image_tag @article.get_image, class: "show-img" %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= @article.title %></td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to @article.user do %>
+              <%= image_tag @article.user.get_profile_image, class: "rounded-circle" %>
+              <%= @article.user.screen_name %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <%= @article.created_at.strftime("%Y-%m-%d %H:%M") %>
+        </tr>
+        <tr>
+          <td><%= @article.body %></td>
+        </tr>
+        <tr>
+          <td>
+            <% @article_tags.each do |tag| %>
+              <%=tag.name%>
+              <%="(#{tag.articles.count})" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= render "public/likes/btn", article: @article %></td>
+          <td><%= render "public/comments/counter", article: @article %></td>
+        </tr>
+      </table>
     </div>    
   </div>        
 </div>

@@ -1,6 +1,24 @@
-<%= groups.each do |group| %>
-  <p>グループ画像を挿入</p>
-  <%= link_to group.name, group, class: "group_#{group.id}" %>
-  <%= group.introduction %>
-  <%= group.users.count %>
-<% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="mx-3"><h3 class="mb-5 mini-title">グループ一覧</h3></div>
+    <div class="col-10 col-md-10 col-sm-10 mx-2 mx-sm-auto px-0 my-5">
+      <%= groups.each do |group| %>
+        <div class="card">
+          <div class="card-img-top">
+            <%= link_to group, class: "group_#{group.id}" do %>
+              <%= image_tag group.get_image, class: "index-img" %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <div class="card-title">
+              <%= group.name %>
+            </div>
+            <div class="card-text">
+              <%= group.users.count %>人が参加中
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>  
+  </div>
+</div>
