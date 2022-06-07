@@ -49,10 +49,14 @@
 }
 
 .rounded-circle {
-  height: 50px !important;
-  width: 50px !important;
+  height: 70px !important;
+  width: 70px !important;
 }
 
+.my_page_img {
+  height: 150px !important;
+  width: 150px !important;
+}
 
 .article-img {
   height: 80px !important;

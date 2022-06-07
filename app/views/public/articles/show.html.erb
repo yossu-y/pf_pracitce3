@@ -2,6 +2,7 @@
   <div class="row">
     <div class="mx-3"><h3 class="mb-5 mini-title">公開された記事</h3></div>
     <div class="col-10 col-md-10 col-sm-10 mx-2 mx-sm-auto px-0 my-5">
+      
       <table class="table">
         <tr>
           <td>
@@ -18,9 +19,9 @@
               <%= @article.user.screen_name %>
             <% end %>
           </td>
-        </tr>
-        <tr>
-          <%= @article.created_at.strftime("%Y-%m-%d %H:%M") %>
+          <td>
+            <%= @article.created_at.strftime("%Y-%m-%d %H:%M") %>
+          </td>
         </tr>
         <tr>
           <td><%= @article.body %></td>
@@ -36,19 +37,21 @@
         <tr>
           <td><%= render "public/likes/btn", article: @article %></td>
           <td><%= render "public/comments/counter", article: @article %></td>
+          <td>
+            <% if @article.user == current_user %>  
+              <%= link_to "編集する", edit_article_path(@article) %>
+              <%= link_to "削除する", article_path, method: :delete, data: { confirm: "本当に削除しますか？"} %>
+            <% end %>
+          </td>
         </tr>
       </table>
     </div>    
   </div>        
 </div>
             
-          <% if @article.user == current_user %>  
-            <%= link_to "編集する", edit_article_path(@article) %>
-            <%= link_to "削除する", article_path, method: :delete, data: { confirm: "本当に削除しますか？"} %>
-          <% end %>
-          
+            <%= render "public/comments/index", article: @article %>
             <%= render "public/comments/form", article: @article, comment: @comment %>
             
-            <%= render "public/comments/index", article: @article %>
+            
             
             
