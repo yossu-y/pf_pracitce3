@@ -75,7 +75,7 @@
 
 /*タブ切り替え*/
 .tab {
-  width: 100%;
+  width: 50%;
   padding: 10px;
   cursor: pointer;
   border-left: solid 1px #CCC;
