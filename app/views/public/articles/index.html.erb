@@ -1,17 +1,17 @@
-<ul class="nav nav-tabs" id="tabs">
-  <li class="tab tab-active">記事一覧</li>
-  <li class="tab">グループ一覧</li>
-</ul>
-<!--タブで選択された要素部分-->
-<div class="tabbox-contents">
-  <div class="tabbox box-show">
-    <%= render "public/articles/index", articles: @articles %>
+  <ul class="nav nav-tabs" id="tabs">
+    <li class="tab tab-active">記事一覧</li>
+    <li class="tab">グループ一覧</li>
+  </ul>
+  <!--タブで選択された要素部分-->
+  <div class="tabbox-contents">
+    <div class="tabbox box-show">
+      <%= render "public/articles/index", articles: @articles %>
+    </div>
+    <div class="tabbox">
+      <%= render "public/groups/index", groups: @groups %>
+    </div>
   </div>
-  <div class="tabbox">
-    <%= render "public/groups/index", groups: @groups %>
-  </div>
-</div>
-
+  
 
   　
 

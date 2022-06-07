@@ -43,11 +43,37 @@
   width: 100% !important;
 }
 
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
-  width: 30% !important;
-  display: flex !important;
-  margin-top: 20px;
+  margin: 3px !important;
+  width: 20% !important;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  flex-basis: 200px;
+  z-index: 10 !important;
+}
+
+.card-img {
+  padding: 1px;
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 5px;
+}
+
+.card-title {
+  font-size: 20px;
   margin-bottom: 20px;
+  color: #333;
+
 }
 
 .icon-mini {
@@ -110,12 +136,19 @@
   position: fixed;
   right: 20px;
   bottom: 20px;
+  z-index: 0 !important;
 }
+
 .back-img {
   hover: none;
+  z-index: 0 !important;
 }
 
 body {
+}
+
+main {
+  
 }
 
 footer {
