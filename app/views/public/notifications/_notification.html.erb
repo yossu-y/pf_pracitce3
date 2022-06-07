@@ -1,26 +1,16 @@
 <% visiter = notification.visiter %>
 <% visited = notification.visited %>
 
-<%= visiter.screen_name %> さんが
+<%= link_to user_path(visiter) do %>
+  <%= image_tag visiter.get_profile_image, class: "icon-mini rounded-circle" %>
+  <%= visiter.screen_name %> さんが
+<% end %>
 <% case notification.action %>
-<% when 'comment' %>
-  コメントをした
-<% when 'like' %>
-  いいねをした
+<% when "comment" %>
+  コメントをしました<%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+<% when "like" %>
+  いいねをした<%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+<% when "follow" %>
 <% else %>
   何かアクションをした
 <% end %>
-
-
-<div class="user-view clearfix">
-  <%= link_to user_path(visiter) do %>
-    <%= image_tag visiter.get_profile_image, class: "icon_mini" %>
-  <% end %>
-  <%#= notification_form(notification) %>
-  <span class="moderate-font">
-    <%= " (#{time_ago_in_words(notification.created_at)}前)" %>
-  </span>
-  <% if !@comment.nil? %>
-    <p class="moderate-font"><%= @comment %></p>
-  <% end %>
-</div>

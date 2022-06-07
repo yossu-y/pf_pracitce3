@@ -2,7 +2,7 @@
   <tbody>
     <% article.comments.each do |comment| %>
     <tr>
-      <td><%= image_tag comment.user.get_profile_image, class: "rounded-circle" %></td>
+      <td><%= image_tag comment.user.get_profile_image, class: "icon-mini rounded-circle" %></td>
       <td><%= comment.user.screen_name %></td>
     </tr>
     <tr>
