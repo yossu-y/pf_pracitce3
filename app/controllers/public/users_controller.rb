@@ -5,6 +5,8 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @article = Article.find(params[:id])
+    @article_tags = @article.tags
   end
 
   def edit

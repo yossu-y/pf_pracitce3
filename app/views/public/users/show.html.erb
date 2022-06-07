@@ -34,6 +34,19 @@
             </td>
           </tr>
         </table>
+        <h3>過去の投稿</h3>
+        <table class="table">
+          <tr>
+            <td>
+              <%= image_tag @article.get_image, class: "posting-img" %>
+            </td>
+            <td><%= @article.title %></td>
+            <td><%= link_to "詳細を見る", article_path %></td>
+            <td><%= render "public/likes/btn", article: @article %></td>
+            <td><%= render "public/comments/counter", article: @article %></td>
+            <td><%= @article.created_at.strftime("%Y-%m-%d") %></td>
+          </tr>
+        </table>
       
     </div>
   </div>    

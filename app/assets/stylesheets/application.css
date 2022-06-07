@@ -61,3 +61,8 @@
   border-radius: 5px;
 }
 
+.posting-img {
+  width: 60px !important;
+  height: 60px !important;
+}
+
