@@ -1,5 +1,6 @@
-let title = "javascriptが使えました";
-alert(title);
+
+
+// タブのjavascript
 
 $(document).on('turbolinks:load', function() {
   $(function() {
@@ -28,5 +29,16 @@ $(document).on('turbolinks:load', function() {
       // .tabboxとindexの番号が同じ要素に.box-showを追加
       $('.tabbox').eq(index).addClass('box-show');
     });
+  });
+});
+
+
+// トップに戻る
+$(function() {
+  $('#back a').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+    event.preventDefault();
   });
 });
