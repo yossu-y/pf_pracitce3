@@ -36,7 +36,7 @@ class Article < ApplicationRecord
     end
   end
   
-  def create_notification_like!(current_user)
+  def create_notification_like!(current_user, like_id)
     # すでに「いいね」されているか検索
     temp = Notification.where(["visiter_id = ? and visited_id = ? and article_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
     # いいねされていない場合のみ、通知レコードを作成
@@ -44,7 +44,8 @@ class Article < ApplicationRecord
       notification = current_user.active_notifications.new(
         article_id: id,
         visited_id: user_id,
-        action: "like"
+        action: "like",
+        like_id: like_id
       )
       # 自分の投稿に対するいいねの場合は、通知済みとする
       if notification.visiter_id == notification.visited_id

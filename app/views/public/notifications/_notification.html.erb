@@ -1,10 +1,22 @@
 <% visiter = notification.visiter %>
 <% visited = notification.visited %>
+
+<%= visiter.screen_name %> さんが
+<% case notification.action %>
+<% when 'comment' %>
+  コメントをした
+<% when 'like' %>
+  いいねをした
+<% else %>
+  何かアクションをした
+<% end %>
+
+
 <div class="user-view clearfix">
   <%= link_to user_path(visiter) do %>
-    <%= image_tag notification.visiter.image, class: "icon_mini" %>
+    <%= image_tag visiter.get_profile_image, class: "icon_mini" %>
   <% end %>
-  <%= notification_form(notification) %>
+  <%#= notification_form(notification) %>
   <span class="moderate-font">
     <%= " (#{time_ago_in_words(notification.created_at)}前)" %>
   </span>
@@ -12,8 +24,3 @@
     <p class="moderate-font"><%= @comment %></p>
   <% end %>
 </div>
-    
-   s
-
-
-    
