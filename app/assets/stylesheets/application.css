@@ -73,24 +73,34 @@
 }
 
 
-#activeがついてない時は、グレーになります。
-.nav-link {
-  background-color:#bbb;
+/*タブ切り替え*/
+.tab {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-left: solid 1px #CCC;
+  border-bottom: solid 1px #CCC;
 }
-
-#ホバーした時の記述
-.nav-link:hover {
-  opacity: 0.7;
-  transition: 0.3s;
+.tab:first-child {
+  border-left: none;
 }
-
-#「tab_contents_item」は通常時は何も表示されないようにします！！！
-.tab_contents_item{
-  display:none;
+/*タブがactiveのときのデザイン*/
+.tab-active {
+  color: #FFF;
+  background: #19b5d1;
+  transition: all 0.2s ease-in-out;
 }
-
-#activeがクラス名についたら表示されるようにします。
-.tab_contents_item.active{
-  display:block;
+/*タブの中身、最初は非表示*/
+.tabbox {
+  display: none;
+  padding: 15px;
 }
-
+/*box-showクラスのものだけ表示*/
+.box-show {
+  display: block;
+}
+/*hover時のアクション*/
+.tab:hover{
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
