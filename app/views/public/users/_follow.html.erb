@@ -1,11 +1,11 @@
 <div>
   <% if user != current_user %>
     <% if current_user.following?(user) %>
-      <%= link_to user_relationships_path(user.id), class: "btn btn-success btn-sm btn-block", method: :delete do %>
+      <%= link_to user_relationship_path(user.id), class: "btn btn-success btn-sm btn-block", method: :delete do %>
         <i class="fa-solid fa-user-check"></i>フォロー中
       <% end %>
     <% else %>
-      <%= link_to user_relationships_path(user.id), class: "btn btn-success btn-sm btn-block", method: :post do %>
+      <%= link_to user_relationship_path(user.id), class: "btn btn-success btn-sm btn-block", method: :post do %>
         <i class="fas fa-user-plus"></i>フォロー
       <% end %>
     <% end %>
