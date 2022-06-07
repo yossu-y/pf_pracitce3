@@ -10,6 +10,7 @@ class Public::ArticlesController < ApplicationController
     @articles = Article.all
     @article = Article.new
     @tag_list = Tag.all
+    @groups = Group.all
   end
 
   def edit

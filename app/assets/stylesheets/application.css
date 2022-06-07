@@ -72,3 +72,25 @@
   height: 60px !important;
 }
 
+
+#activeがついてない時は、グレーになります。
+.nav-link {
+  background-color:#bbb;
+}
+
+#ホバーした時の記述
+.nav-link:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+#「tab_contents_item」は通常時は何も表示されないようにします！！！
+.tab_contents_item{
+  display:none;
+}
+
+#activeがクラス名についたら表示されるようにします。
+.tab_contents_item.active{
+  display:block;
+}
+
