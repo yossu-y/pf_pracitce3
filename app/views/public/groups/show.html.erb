@@ -21,7 +21,7 @@
           <td>グループの作成者:</td>
           <td>
             <%= link_to @group.owner do %>
-              <%= image_tag @group.owner.get_profile_image, class: "rounded-circle img" %>
+              <%= image_tag @group.owner.get_profile_image, class: "rounded-circle mini-icon" %>
               <%= @group.owner.screen_name %>
             <% end %>
           </td>
