@@ -2,8 +2,10 @@
   <tbody>
     <% article.comments.each do |comment| %>
     <tr>
-      <td>プロフィール画像</td>
+      <td><%= image_tag comment.user.get_profile_image, class: "rounded-circle" %></td>
       <td><%= comment.user.screen_name %></td>
+    </tr>
+    <tr>
       <td><%= comment.comment %></td>
       <td>
         <% if comment.user == current_user %>
