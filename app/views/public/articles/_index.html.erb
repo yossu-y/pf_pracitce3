@@ -23,7 +23,9 @@
               <id ="like_buttons_<%= @article.id %>">
                 <%= render "public/likes/btn", article: article %>&nbsp;
               </id>
-              <%= render "public/comments/counter", article: article %>
+              <div class="comments-counter">
+                <%= render "public/comments/counter", article: article %>
+              </div>
             </div>
           </div>
         </div>
