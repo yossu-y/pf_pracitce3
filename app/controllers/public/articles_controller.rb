@@ -77,6 +77,12 @@ class Public::ArticlesController < ApplicationController
     redirect_to articles_path
   end
   
+  def user_index
+    @article_tags = @article.tags
+    @articles = Article.where(user_id:params[:id])
+    @article = Article.find(params[:id])
+  end
+  
   private
   
   def article_params
