@@ -35,7 +35,9 @@
           </td>
         </tr>
         <tr>
-          <td><%= render "public/likes/btn", article: @article %></td>
+          <td id="like_buttons_<%= @article.id %>">
+            <%= render "public/likes/btn", article: @article %>
+          </td>
           <td><%= render "public/comments/counter", article: @article %></td>
           <td>
             <% if @article.user == current_user %>  
