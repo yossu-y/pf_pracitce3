@@ -9,8 +9,8 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td>プロフィール画像を挿入</td>
-        <td><%= user.name %></td>
+        <td><%= image_tag user.get_profile_image, class: "rounded-circle icon-mini" %></td>
+        <td><%= user.screen_name %></td>
         <td>フォロー数: <%= user.followings.count %></td>
         <td>フォロワー数: <%= user.followers.count %></td>
         <td><%= render "public/relationships/btn", user: user %></td>

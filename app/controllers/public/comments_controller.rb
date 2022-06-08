@@ -5,13 +5,13 @@ class Public::CommentsController < ApplicationController
     @comment.article_id = article.id
     @comment.save
     article.create_notification_comment!(current_user, @comment.id)
-    redirect_to request.referer
+    # redirect_to request.referer
   end
   
   def destroy
     @comment = Comment.find_by(id: params[:id], article_id: params[:article_id])
     @comment.destroy
-    redirect_to request.referer
+    # redirect_to request.referer
   end
   
   private
