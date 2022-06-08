@@ -32,7 +32,6 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
-
 // トップに戻る
 $(function() {
   $('#back a').on('click',function(event){
@@ -42,3 +41,4 @@ $(function() {
     event.preventDefault();
   });
 });
+
