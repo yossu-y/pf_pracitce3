@@ -1,13 +1,16 @@
-<% if @range == "user" %>
+<% if @range == "User" %>
   <% @users.each do |user| %>
     <%= user.screen_name %>
+    ユーザー
   <% end %>
-<% elsif @range == "article" %>
+<% elsif @range == "Article" %>
   <% @articles.each do |article| %>
     <%= article.title %>
+    記事
   <% end %>
-<% else @range == "tag" %>
+<% else @range == "Tag" %>
   <% @tags.each do |tag| %>
     <%= tag.name %>
+    タグ
   <% end %>
 <% end %>

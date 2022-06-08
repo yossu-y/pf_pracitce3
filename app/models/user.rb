@@ -38,9 +38,9 @@ class User < ApplicationRecord
   
   def self.search(search, keyword)
     if search != ""
-      User.where(['screen_name LIKE(?)', "%#{search}%"])
+      @user = User.where(['screen_name LIKE(?)', "%#{keyword}%"])
     else
-      User.all
+      @user = User.all
     end
   end
   

@@ -5,9 +5,9 @@ class Tag < ApplicationRecord
   
   def self.search(search, keyword)
     if search != ""
-      Tag.where(['name LIKE(?)', "%#{search}%"])
+      @tag = Tag.where(['name LIKE(?)', "%#{keyword}%"])
     else
-      Tag.all
+      @tag = Tag.all
     end
   end
   
