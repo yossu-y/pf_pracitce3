@@ -1,16 +1,25 @@
 <% visiter = notification.visiter %>
 <% visited = notification.visited %>
+<% your_post = link_to "あなたの投稿", notification.article, remote: true %>
 
-<%= link_to user_path(visiter) do %>
-  <%= image_tag visiter.get_profile_image, class: "icon-mini rounded-circle" %>
-  <%= visiter.screen_name %> さんが
-<% end %>
-<% case notification.action %>
-<% when "comment" %>
-  コメントをしました<%= " (#{time_ago_in_words(notification.created_at)}前)" %>
-<% when "like" %>
-  いいねをした<%= " (#{time_ago_in_words(notification.created_at)}前)" %>
-<% when "follow" %>
-<% else %>
-  何かアクションをした
-<% end %>
+<table>
+  <tr>
+    <%= link_to user_path(visiter) do %>
+      <%= image_tag visiter.get_profile_image, class: "icon-mini rounded-circle" %>
+      <%= visiter.screen_name %> さん
+    <% end %>が
+    <% case notification.action %>
+    <% when "comment" %>
+      あなたの投稿に
+      コメントをしました<%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+    <% when "like" %>
+      あなたの投稿に
+      いいね!しました<%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+    <% when "follow" %>
+      あなたを
+      フォローしました<%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+    <% else %>
+      何かアクションをした
+    <% end %>
+  </tr>
+</table>
