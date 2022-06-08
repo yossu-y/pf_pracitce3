@@ -83,9 +83,9 @@ class Article < ApplicationRecord
   
   def self.search(search, keyword)
     if search != ""
-      Article.where(['title LIKE(?)', "%#{search}%"])
+      @article = Article.where(['title LIKE(?)', "%#{keyword}%"])
     else
-      Article.all
+      @article = Article.all
     end
   end
   
