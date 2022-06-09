@@ -18,16 +18,15 @@ class Public::ContactsController < ApplicationController
       ContactMailer.send_mail(@contact).deliver_now
       render "thanks"
     else
-      render :new
+      render "new"
     end
   end
 
   def thanks
-    @contact = Contact.new(params[:inquiry].permit(:name, :email, :subject, :message))    
-    InquiryMailer.received_email(@inquiry).deliver
+    @contact = Contact.new(contact_params)    
+    InquiryMailer.received_email(@contact).deliver
 
-    # 完了画面を表示
-    render :action => 'thanks'
+    render "thanks"
   end
   
   private
