@@ -37,6 +37,10 @@ Rails.application.routes.draw do
     
     get "searches/search" => "searches#search", as: "search"
     
+    post "contacts/confirm" => "contacts#confirm"
+    get "contacts/thanks" => "contacts#thanks"
+    resources :contacts, only: [:create, :destroy, :new]
+    
   end
   
   # ゲストログイン用
