@@ -14,6 +14,7 @@ class Public::ContactsController < ApplicationController
   
   def create
     @contact = Contact.new(contact_params)
+    @contact.user = current_user
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       render "thanks"
@@ -24,7 +25,7 @@ class Public::ContactsController < ApplicationController
 
   def thanks
     @contact = Contact.new(contact_params)    
-    InquiryMailer.received_email(@contact).deliver
+    ContactMailer.received_email(@contact).deliver
 
     render "thanks"
   end
