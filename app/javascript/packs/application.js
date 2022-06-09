@@ -10,6 +10,8 @@ import "channels"
 import "jquery";
 import "skippr.min"
 import "script.js"
+import "tag-it.js"
+import "tag-it.min"
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application" 

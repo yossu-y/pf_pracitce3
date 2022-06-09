@@ -42,3 +42,9 @@ $(function() {
   });
 });
 
+
+// $("#myTags").tagit({
+//     singleField: true,
+//     //自動補完するワードを設定
+//     availableTags: ['php', 'ruby', 'react', 'reactNative', 'laravel']
+// });
