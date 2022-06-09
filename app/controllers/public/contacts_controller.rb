@@ -6,9 +6,9 @@ class Public::ContactsController < ApplicationController
   def confirm
     @contact = Contact.new(contact_params)
     if @contact.invalid?
-      redirect_to 
+      render "new"
     else
-      render "index"
+      render "confirm"
     end
   end
   
@@ -16,7 +16,7 @@ class Public::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
-      redirect_to done_path
+      render "thanks"
     else
       render :new
     end
