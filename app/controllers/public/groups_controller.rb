@@ -20,7 +20,7 @@ class Public::GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
-      redirect_to groups_path
+      redirect_to groups_path, notice: "グループを作成しました！"
     else
       render "new"
     end
@@ -31,10 +31,14 @@ class Public::GroupsController < ApplicationController
   
   def update
     if @group.update(group_params)
-      redirect_to groups_path
+      redirect_to groups_path, notice: "グループを更新しました！"
     else
       render "edit"
     end
+  end
+  
+  def chat
+    @group = Group.find(params[:id])
   end
   
   private

@@ -21,7 +21,7 @@
           <td>グループの作成者:</td>
           <td>
             <%= link_to @group.owner do %>
-              <%= image_tag @group.owner.get_profile_image, class: "rounded-circle mini-icon" %>
+              <%= image_tag @group.owner.get_profile_image, class: "rounded-circle icon-mini" %>
               <%= @group.owner.screen_name %>
             <% end %>
           </td>
@@ -37,7 +37,9 @@
         <%= link_to "イベントを作成する", new_group_event_notice_path(@group) %>
       <% else %>
         <% if @group.includesUser?(current_user) %>
+          <%= link_to "チャット画面に移る", chat_path(@group) %>
           <%= link_to "退会する", group_group_user_path(@group), method: :delete %>
+          <p>チャット画面</p>
         <% else %>
           <%= link_to "参加する", group_group_user_path(@group), method: :post %>
         <% end %>
