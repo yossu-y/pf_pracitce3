@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :public do
-    get 'contacts/index'
-    get 'contacts/confirm'
-    get 'contacts/thanks'
-  end
   # 利用者用
   
   devise_for :users,skip: [:passwords], controllers: {
@@ -41,6 +36,10 @@ Rails.application.routes.draw do
     resources :notifications, only: [:index]
     
     get "searches/search" => "searches#search", as: "search"
+    
+    post "contacts/confirm" => "contacts#confirm"
+    get "contacts/thanks" => "contacts#thanks"
+    resources :contacts, only: [:index, :create, :destroy, :new, :update]
     
   end
   
