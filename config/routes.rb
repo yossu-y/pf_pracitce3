@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  namespace :public do
+    get 'contacts/index'
+    get 'contacts/confirm'
+    get 'contacts/thanks'
+  end
   # 利用者用
   
   devise_for :users,skip: [:passwords], controllers: {
