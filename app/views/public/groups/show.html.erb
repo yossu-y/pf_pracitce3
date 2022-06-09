@@ -37,9 +37,9 @@
         <%= link_to "イベントを作成する", new_group_event_notice_path(@group) %>
       <% else %>
         <% if @group.includesUser?(current_user) %>
-          <%= link_to "退会する", group_group_users_path(@group), method: :delete %>
+          <%= link_to "退会する", group_group_user_path(@group), method: :delete %>
         <% else %>
-          <%= link_to "参加する", group_group_users_path(@group), method: :post %>
+          <%= link_to "参加する", group_group_user_path(@group), method: :post %>
         <% end %>
       <% end %>
     
