@@ -43,8 +43,10 @@ $(function() {
 });
 
 
-// $("#myTags").tagit({
-//     singleField: true,
-//     //自動補完するワードを設定
-//     availableTags: ['php', 'ruby', 'react', 'reactNative', 'laravel']
-// });
+$(document).ready(function() {
+    $(".myTags").tagit({  // セレクタにtag-it反映
+      tagLimit:5,         // タグの最大数
+      singleField: true,   // タグの一意性
+      // availableTags: ['ruby', 'rails', ..]  自動補完を設定する場合※Ajax通信でDB値を渡す予定
+    });
+});

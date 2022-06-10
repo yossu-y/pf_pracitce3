@@ -59,4 +59,4 @@ gem "devise"
 
 gem "dotenv-rails"
 
-gem "jquery-ui-rails"
+gem 'jquery-ui-rails'
