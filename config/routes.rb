@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   # 利用者用
   
   devise_for :users,skip: [:passwords], controllers: {
@@ -31,9 +32,11 @@ Rails.application.routes.draw do
     get "groups/:id/chat" => "groups#chat", as: "chat"
     resources :groups, only: [:index, :new, :show, :edit, :create, :update, :destroy] do
       resource :group_user, onyl: [:create, :destroy]
+      resources :chats, only: [:show]
       resources :event_notices, only: [:new, :create]
       get "event_notice" => "event_notice#sent"
     end
+    mount ActionCable.server => "/cable"
     
     resources :notifications, only: [:index]
     

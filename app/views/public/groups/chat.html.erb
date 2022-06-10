@@ -1,5 +1,13 @@
 グループチャット
 
+<div tyle="text" id="chat-input">
+  <%= form_with model: @group do |f| %>
+    <%= f.text_area :content, class: "chat-input" %>
+    <%= f.submit "送信", class: "button" %>
+  <% end %>
+</div>
+
+
 
 <% if @group.is_owned_by?(current_user) %>
   <%= link_to "イベントを作成する", new_group_event_notice_path(@group) %>
