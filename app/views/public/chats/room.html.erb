@@ -5,8 +5,8 @@
   <%= f.submit "送信" %>
 <% end %>
 
-<% group.contents.each do |content| %>
-  <%= group.content %>
+<% @chats.each do |chat| %>
+  <%= chat.content %>
 <% end %>
 
 

@@ -37,10 +37,6 @@ class Public::GroupsController < ApplicationController
     end
   end
   
-  def chat
-    @group = Group.find(params[:id])
-  end
-  
   private
   
   def group_params
