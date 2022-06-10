@@ -1,0 +1,7 @@
+<% @tag_list.each do |list|%>
+  <%=link_to articles_path(tag_id: @article.id ) do %>
+    <%= list.name %>
+    <%="(#{list.articles.count})" %>
+  <% end %>
+<% end %>
+
