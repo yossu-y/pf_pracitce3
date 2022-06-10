@@ -84,10 +84,12 @@ class Public::ArticlesController < ApplicationController
   end
   
   def search_tag
-    @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @articles = @tag.articles.all
-    @article = Article.where(tag_id:params[:id])
+  end
+  
+  def tag_index
+    @tag_list = Tag.all
   end
   
   private
