@@ -1,24 +1,36 @@
-<div class="container">
-<h5>タグが<%=@tag.name%>の投稿一覧</h5>
-
-<!--タグリスト-->
-<% @tag_list.each do |list|%>
-  <%= link_to list.name,search_tag_path(tag_id: @article.id) %>
-  <%="(#{list.articles.count})" %>
-<% end %>
-<% @articles.each do |post| %>
-<!--投稿はカードで囲む-->
-<div class="card">
-  <div class="card-body">
-    <!--タイトル表示される文字数は２５文字までにしてます-->
-    <h6 class="card-title">
-      <%=link_to post_path(post.id) do %><%= post.title.truncate(25) %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="mx-3"><h3 class="mb-5 mini-title">タグが<%=@tag.name%>の投稿一覧</h3></div>
+    <div class="col-12 col-md-12 col-sm-12 mx-2 mx-sm-auto px-0 my-5 list">
+      
+      <% @articles.each do |article| %>
+        <div class="card">
+          <div class="card-img">
+            <%= link_to article_path(article.id) do %>
+              <%= image_tag article.get_image, class: "card-img" %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <div class="card-title">
+              <%= article.title %>
+            </div>
+            <div class="card-icon">
+              <%= image_tag article.user.get_profile_image, class: "rounded-circle icon-mini" %>
+              <%= link_to article.user do %>
+                <%= article.user.screen_name %>
+              <% end %>
+            </div>
+            <div class="card-link">
+              <td id="like_buttons_<%= article.id %>">
+                <%= render "public/likes/btn", article: article %>&nbsp;
+              </td>
+              <div class="comments-counter">
+                <%= render "public/comments/counter", article: article %>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </h6>
-    <!--お気に入り、コメント数、投稿者は部分テンプレ-->
-      <div id="<%=post.id %>"><%= render 'favorites/favorite', post: post %></div>
-
-
+    </div>
   </div>
 </div>
-<% end %>

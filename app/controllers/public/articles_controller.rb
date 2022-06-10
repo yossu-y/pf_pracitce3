@@ -87,6 +87,7 @@ class Public::ArticlesController < ApplicationController
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @articles = @tag.articles.all
+    @article = Article.where(tag_id:params[:id])
   end
   
   private
