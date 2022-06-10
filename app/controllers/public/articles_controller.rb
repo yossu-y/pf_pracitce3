@@ -83,6 +83,12 @@ class Public::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
   
+  def search_tag
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @articles = @tag.articles.all
+  end
+  
   private
   
   def article_params
