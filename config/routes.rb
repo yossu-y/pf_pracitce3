@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     
     get "groups/:id/chat" => "groups#chat", as: "chat"
     resources :groups, only: [:index, :new, :show, :edit, :create, :update, :destroy] do
+      resources :chats, only:[:create, :destroy]
       resource :group_user, onyl: [:create, :destroy]
       resources :event_notices, only: [:new, :create]
       get "event_notice" => "event_notice#sent"
