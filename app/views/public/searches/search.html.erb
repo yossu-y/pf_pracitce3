@@ -1,12 +1,10 @@
 <% if @range == "User" %>
   <% @users.each do |user| %>
-    <%= user.screen_name %>
-    ユーザー
+    <%= render "public/users/index", users: @users %>
   <% end %>
 <% elsif @range == "Article" %>
   <% @articles.each do |article| %>
-    <%= article.title %>
-    記事
+    <%= render "public/articles/index", articles: @articles %>
   <% end %>
 <% else @range == "Tag" %>
   <% @tags.each do |tag| %>
