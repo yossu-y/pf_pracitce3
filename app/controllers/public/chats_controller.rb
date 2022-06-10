@@ -6,8 +6,9 @@ class Public::ChatsController < ApplicationController
   end
   
   def create
-    @chat.save
-    render "room"
+    # group = Group.find(params[:group_id])
+    # @chat.groud_id = group.id
+    # @chat.save
   end
   
   def destroy

@@ -1,9 +1,13 @@
 グループチャット
 
-<%= form_with model: @chat do |f| %>
-  <%= f.text_area :content %>
-  <%= f.submit "送信" %>
-<% end %>
+<div id="chat">
+  <%= form_with model: @chat do |f| %>
+    <%= f.text_area :content %>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>
+
+
 
 <% @chats.each do |chat| %>
   <%= chat.content %>
