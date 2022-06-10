@@ -1,21 +1,23 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% users.each do |user| %>
-      <tr>
-        <td><%= image_tag user.get_profile_image, class: "rounded-circle icon-mini" %></td>
-        <td><%= user.screen_name %></td>
-        <td>フォロー数: <%= user.followings.count %></td>
-        <td>フォロワー数: <%= user.followers.count %></td>
-        <td><%= render "public/relationships/btn", user: user %></td>
-        <td><%= link_to "Show", user, class: "user_#{user.id}" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-10 col-md-10 col-sm-10 mx-2 mx-sm-auto px-0 my-5">
+      <table class="table" style="border: 1px solid black; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th colspan="4"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.each do |user| %>
+            <tr>
+              <td><%= image_tag user.get_profile_image, class: "rounded-circle icon-mini" %></td>
+              <td><%= user.screen_name %></td>
+              <td><%= render "public/relationships/btn", user: user %></td>
+              <td><%= link_to "Show", user, class: "user_#{user.id}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>    
+  </div>        
+</div>

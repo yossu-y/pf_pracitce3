@@ -6,7 +6,7 @@
       <%= image_tag article.get_image, class: "posting-img" %>
     </td>
     <td><%= article.title %></td>
-    <td><%= link_to "詳細を見る", article_path %></td>
+    <td><%= link_to "詳細を見る", article_path, class: "text-dark" %></td>
     <td id="like_buttons_<%= article.id %>">
       <%= render "public/likes/btn", article: article %>
     </td>

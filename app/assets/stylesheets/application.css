@@ -76,9 +76,15 @@
 
 }
 
-.icon-mini {
+.icon {
   height: 100px !important;
   width: 100px !important;
+}
+
+.icon-mini {
+  height: 50px !important;
+  width: 50px !important;
+  margin: 1px;
 }
 
 .my_page_img {
@@ -164,4 +170,13 @@ footer {
   letter-spacing: 4px;
   color: black;
   border-top: solid 1px #000000;
+}
+
+.table {
+  border-color: #dcdcdc !important;
+}
+
+td {
+  padding-top: 10px !important;
+  vertical-align: middle !important;
 }

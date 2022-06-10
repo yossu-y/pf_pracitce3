@@ -15,7 +15,7 @@
         <tr>
           <td>
             <%= link_to @article.user do %>
-              <%= image_tag @article.user.get_profile_image, class: "icon-mini rounded-circle" %>
+              <%= image_tag @article.user.get_profile_image, class: "icon rounded-circle" %>
               <%= @article.user.screen_name %>
             <% end %>
           </td>

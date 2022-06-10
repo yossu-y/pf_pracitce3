@@ -20,9 +20,9 @@
               <% end %>
             </div>
             <div class="card-link">
-              <id ="like_buttons_<%= @article.id %>">
+              <td id="like_buttons_<%= article.id %>">
                 <%= render "public/likes/btn", article: article %>&nbsp;
-              </id>
+              </td>
               <div class="comments-counter">
                 <%= render "public/comments/counter", article: article %>
               </div>

@@ -7,10 +7,10 @@ class Public::ArticlesController < ApplicationController
   end
   
   def index
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc)
     @article = Article.new
     @tag_list = Tag.all
-    @groups = Group.all
+    @groups = Group.all.order(created_at: :desc)
   end
 
   def edit
