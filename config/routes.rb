@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     
     post "contacts/confirm" => "contacts#confirm"
     get "contacts/thanks" => "contacts#thanks"
-    resources :contacts, only: [:create, :destroy, :new]
+    resources :contacts, only: [:create, :new]
     
   end
   
